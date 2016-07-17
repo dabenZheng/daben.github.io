@@ -11,8 +11,8 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/script.js"></script>
 
-  <title>test</title>
-  <meta name="description" content="better-java">
+  <title>record</title>
+  <meta name="description" content="奇数位上都是奇数或者偶数位上都是偶数">
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -22,30 +22,72 @@
 
   <div class="wrapper">
     <header>
-      <h1 class="title">test</h1>
+      <h1 class="title">record</h1>
     </header>
     <div id="container">
-      <p class="tagline">better-java</p>
+      <p class="tagline">奇数位上都是奇数或者偶数位上都是偶数</p>
       <div id="main" role="main">
         <div class="download-bar">
         <div class="inner">
           <a href="https://github.com/dabenZheng/daben.github.io/tarball/master" class="download-button tar"><span>Download</span></a>
           <a href="https://github.com/dabenZheng/daben.github.io/zipball/master" class="download-button zip"><span>Download</span></a>
-          <a href="https://github.com/dabenZheng/daben.github.io" class="code">View test on GitHub</a>
+          <a href="https://github.com/dabenZheng/daben.github.io" class="code">View record on GitHub</a>
         </div>
         <span class="blc"></span><span class="trc"></span>
         </div>
         <article class="markdown-body">
           <h2>
-<a id="better-java" class="anchor" href="#better-java" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>better-java</h2>
+<a id="奇数位上都是奇数或者偶数位上都是偶数" class="anchor" href="#%E5%A5%87%E6%95%B0%E4%BD%8D%E4%B8%8A%E9%83%BD%E6%98%AF%E5%A5%87%E6%95%B0%E6%88%96%E8%80%85%E5%81%B6%E6%95%B0%E4%BD%8D%E4%B8%8A%E9%83%BD%E6%98%AF%E5%81%B6%E6%95%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>奇数位上都是奇数或者偶数位上都是偶数</h2>
 
-<p>test</p>
+<h3>
+<a id="题目" class="anchor" href="#%E9%A2%98%E7%9B%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>题目</h3>
+
+<p>给定一个长度不小于2的数组arr。 写一个函数调整arr，使arr中要么所有的偶数位上都是偶数，要么所有的奇数位上都是奇数上。 要求：如果数组长度为N，时间复杂度请达到O(N)，额外空间复杂度请达到O(1),下标0,2,4,6...算作偶数位,下标1,3,5,7...算作奇数位，例如[1,2,3,4]调整为[2,1,4,3]即可 。</p>
+
+<h3>
+<a id="思路" class="anchor" href="#%E6%80%9D%E8%B7%AF" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>思路</h3>
+
+<p>类似于快排，只不过快排是i从最小下标开始每次+1，j从最大下标开始每次-1；本体可以设置odd,even,odd从下标1开始每次+2，even从下标0开始，每次+2；
+循环的条件就是odd&lt;len &amp;&amp; even&lt;len...</p>
+
+<h3>
+<a id="code" class="anchor" href="#code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>code</h3>
+
+<blockquote>
+<p>class Solution {
+public:
+   /**
+    *  奇数位上都是奇数或者偶数位上都是偶数
+    *  输入：数组arr，长度大于2
+    *  len：arr的长度
+    *  将arr调整成奇数位上都是奇数或者偶数位上都是偶数
+    */
+void oddInOddEvenInEven(vector&amp; arr, int len) {
+int odd = 1;
+int even = 0;
+int temp = 0;
+while (odd &lt; len &amp;&amp; even &lt; len)
+{
+ while (even &lt; len &amp;&amp; arr[even] %2 == 0) 
+  even += 2;
+ while (odd &lt; len &amp;&amp; arr[odd] %2 == 1)
+ odd += 2;
+if (odd &lt; len &amp;&amp; arr[odd] %2 == 0 &amp;&amp; even &lt; len &amp;&amp; arr[even] %2 == 1)<br>
+  {
+   temp = arr[odd];
+   arr[odd] = arr[even];
+   arr[even] = temp;
+  }
+}
+   }
+};</p>
+</blockquote>
         </article>
       </div>
     </div>
     <footer>
       <div class="owner">
-      <p><a href="https://github.com/dabenZheng" class="avatar"><img src="https://avatars3.githubusercontent.com/u/16523974?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/dabenZheng">dabenZheng</a> maintains <a href="https://github.com/dabenZheng/daben.github.io">test</a></p>
+      <p><a href="https://github.com/dabenZheng" class="avatar"><img src="https://avatars3.githubusercontent.com/u/16523974?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/dabenZheng">dabenZheng</a> maintains <a href="https://github.com/dabenZheng/daben.github.io">record</a></p>
 
 
       </div>

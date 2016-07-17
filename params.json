@@ -1,6 +1,6 @@
 {
-  "name": "test",
-  "tagline": "better-java",
-  "body": "##better-java\r\n\r\ntest\r\n\r\n\r\n",
+  "name": "record",
+  "tagline": "奇数位上都是奇数或者偶数位上都是偶数",
+  "body": "##奇数位上都是奇数或者偶数位上都是偶数\r\n\r\n### 题目\r\n给定一个长度不小于2的数组arr。 写一个函数调整arr，使arr中要么所有的偶数位上都是偶数，要么所有的奇数位上都是奇数上。 要求：如果数组长度为N，时间复杂度请达到O(N)，额外空间复杂度请达到O(1),下标0,2,4,6...算作偶数位,下标1,3,5,7...算作奇数位，例如[1,2,3,4]调整为[2,1,4,3]即可 。\r\n\r\n\r\n### 思路\r\n类似于快排，只不过快排是i从最小下标开始每次+1，j从最大下标开始每次-1；本体可以设置odd,even,odd从下标1开始每次+2，even从下标0开始，每次+2；\r\n循环的条件就是odd<len && even<len...\r\n\r\n\r\n### code\r\n\r\n>\r\n>class Solution {\r\n>public:\r\n>    /**\r\n>     *  奇数位上都是奇数或者偶数位上都是偶数\r\n>     *  输入：数组arr，长度大于2\r\n>     *  len：arr的长度\r\n>     *  将arr调整成奇数位上都是奇数或者偶数位上都是偶数\r\n>     */\r\n>void oddInOddEvenInEven(vector<int>& arr, int len) {\r\n> int odd = 1;\r\n> int even = 0;\r\n> int temp = 0;\r\n> while (odd < len && even < len)\r\n> {\r\n>  while (even < len && arr[even] %2 == 0) \r\n>   even += 2;\r\n>  while (odd < len && arr[odd] %2 == 1)\r\n>  odd += 2;\r\n> if (odd < len && arr[odd] %2 == 0 && even < len && arr[even] %2 == 1)    \r\n>   {\r\n>    temp = arr[odd];\r\n>    arr[odd] = arr[even];\r\n>    arr[even] = temp;\r\n>   }\r\n> }\r\n>    }\r\n>};\r\n\r\n\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
